@@ -1,0 +1,3 @@
+mistralai
+PyPDF2
+python-dotenv
