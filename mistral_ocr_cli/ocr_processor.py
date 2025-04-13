@@ -72,7 +72,7 @@ class OCRProcessor:
                 if hasattr(page, "images") and page.images:
                     for img in page.images:
                         if hasattr(img, "image_base64") and img.image_base64:
-                            img_filename = f"img-{img.id}.jpeg"
+                            img_filename = img.id
                             img_path = os.path.join(file_output_dir, img_filename)
                             with open(img_path, "wb") as img_f:
                                 img_f.write(base64.b64decode(img.image_base64))

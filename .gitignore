@@ -63,6 +63,7 @@ output/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+*.bat
 
 # Mistral OCR CLI outputs
 output/
