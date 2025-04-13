@@ -34,6 +34,8 @@ A robust, user-friendly command-line tool for extracting text and images from PD
 3. **Set up your environment:**
    - Copy `.env.example` to `.env` and fill in your details, or create `.env` as shown below.
 
+> **Note:** The Mistral free tier may allow you to experiment with OCR (mistral-ocr-latest) at no cost, but **billing activation is required for all API usage**. To check if OCR is available in your free tier, visit the [Usage & Limits page](https://console.mistral.ai/usage) in your Mistral console.
+
 ---
 
 ## 🛠️ Configuration
@@ -114,6 +116,7 @@ python mistral.py file1.pdf file2.jpg file3.png \
 
 - Make sure billing is active on your Mistral AI account.
 - If you see errors about API keys or billing, double-check your `.env` and account status.
+- If you want to use the free tier, confirm that "mistral-ocr-latest" is available in your workspace by checking the [Usage & Limits page](https://console.mistral.ai/usage). Even for free usage, billing activation is required.
 - For best results, use high-quality scans/images.
 - All warnings and errors are logged for review.
 

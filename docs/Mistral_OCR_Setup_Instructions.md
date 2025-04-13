@@ -1,6 +1,7 @@
-# 🚀 Mistral OCR App Setup: Quick & Friendly Guide
+# 🚀 Mistral OCR App Setup: Free Tier & Paid Usage Guide
 
-Welcome! This guide will help you get your Mistral AI API key and connect it to your OCR application. No prior experience needed—just follow the steps!
+Welcome! This guide will help you set up your Mistral AI account and API key to use the Mistral OCR (`mistral-ocr-latest`) model with your application.  
+You can experiment with the OCR model using the free API tier, but **billing activation is required** even for free usage.
 
 ---
 
@@ -16,10 +17,11 @@ Welcome! This guide will help you get your Mistral AI API key and connect it to 
 
 ---
 
-## 2. **Set Up Billing**
+## 2. **Activate Billing (Required for Free Tier)**
 
 > **Why?**  
-> Mistral OCR is a paid service (about **$1 per 1,000 pages**). Billing must be active for your API key to work.
+> Mistral requires billing activation for all API usage, including the free tier.  
+> As of early 2025, the free tier allows you to experiment with certain models and features (including OCR, if available in your workspace) without initial charges, but you must still add payment details.
 
 1. In the console, go to **Workspace** > **Billing**.
 2. Click **Add Payment Method** or **Activate Payments**.
@@ -28,7 +30,25 @@ Welcome! This guide will help you get your Mistral AI API key and connect it to 
 
 ---
 
-## 3. **Generate Your API Key**
+## 3. **Check Free Tier Availability for OCR**
+
+- The free tier's available models and features can vary by workspace.
+- To confirm if you can use `mistral-ocr-latest` for free:
+  1. Go to the [Usage & Limits page in your console](https://console.mistral.ai/usage).
+  2. Look for "mistral-ocr-latest" or "OCR" in the list of available models/features.
+  3. If it is listed under your free tier, you can use it within the free tier's limits (see below).
+
+**Free Tier Limits (as of early 2025):**
+- **Requests Per Second (RPS):** 1
+- **Tokens Per Minute (TPM):** 500,000
+- **Tokens Per Month:** 1,000,000,000 (1 Billion)
+- **OCR Pricing:** About $1 per 1,000 pages (see [Mistral Pricing Page](https://mistral.ai/products/la-plateforme#pricing) for details).
+
+> **Note:** If you use features or models not included in your free tier, or exceed the free tier limits, you will be charged according to the pricing page.
+
+---
+
+## 4. **Generate Your API Key**
 
 1. In the console, find **API Keys** (usually under Workspace or in the main menu).
 2. Click **Create new key**.
@@ -42,7 +62,7 @@ Welcome! This guide will help you get your Mistral AI API key and connect it to 
 
 ---
 
-## 4. **Store Your API Key Securely**
+## 5. **Store Your API Key Securely**
 
 - **Best options:**  
   - Password manager (Bitwarden, 1Password, etc.)  
@@ -56,7 +76,7 @@ Welcome! This guide will help you get your Mistral AI API key and connect it to 
 
 ---
 
-## 5. **Connect the API Key to Your OCR App**
+## 6. **Connect the API Key to Your OCR App**
 
 - Your Python OCR app will ask for the API key (in a config file, environment variable, or prompt).
 - Paste your key where instructed.
@@ -67,7 +87,8 @@ Welcome! This guide will help you get your Mistral AI API key and connect it to 
 ## ✅ **Setup Checklist**
 
 - [ ] Created/logged into Mistral AI account
-- [ ] Activated billing
+- [ ] Activated billing (required for free and paid usage)
+- [ ] Checked if `mistral-ocr-latest` is available in your free tier ([console usage page](https://console.mistral.ai/usage))
 - [ ] Generated and copied API key
 - [ ] Stored API key securely
 - [ ] Added API key to your OCR app
@@ -78,3 +99,9 @@ Welcome! This guide will help you get your Mistral AI API key and connect it to 
 
 Your Python OCR application is now set up to use Mistral AI’s powerful OCR service.  
 **Enjoy fast, accurate text extraction—and remember to keep your API key safe!**
+
+---
+
+**Useful Links:**
+- [Mistral Pricing Page](https://mistral.ai/products/la-plateforme#pricing)
+- [Usage & Limits in Console](https://console.mistral.ai/usage)
