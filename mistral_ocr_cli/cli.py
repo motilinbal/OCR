@@ -9,7 +9,12 @@ from .utils import parse_page_ranges, get_basename_no_ext
 
 def main():
     parser = argparse.ArgumentParser(description="Mistral OCR CLI")
-    parser.add_argument("--input", nargs="+", required=True, help="Input PDF/image files")
+    parser.add_argument(
+        "input_files",
+        nargs="+",
+        metavar="FILE",
+        help="One or more input PDF/image files to process. List multiple files separated by spaces (e.g., file1.pdf file2.jpg file3.png)."
+    )
     parser.add_argument("--output-format", choices=["md", "txt"], help="Output format (default: md)")
     parser.add_argument("--output-dir", help="Output directory")
     parser.add_argument("--log-path", help="Log file path")
@@ -28,7 +33,7 @@ def main():
         sys.exit(1)
 
     # Set up logger
-    first_file = args.input[0]
+    first_file = args.input_files[0]
     basename = get_basename_no_ext(first_file)
     log_path = args.log_path or config.default_log_path.replace("{basename}", basename)
     logger = setup_logger(log_path)
@@ -45,7 +50,7 @@ def main():
     ocr = OCRProcessor(config, logger)
     report = Report()
 
-    for file_path in args.input:
+    for file_path in args.input_files:
         logger.info(f"--- Processing {file_path} ---")
         # Estimate pages (unknown until processed, so estimate = 1 for images, or all pages for PDFs if possible)
         est_pages = 1

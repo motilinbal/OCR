@@ -62,8 +62,7 @@ DEFAULT_IMAGE_MIN_SIZE=0
 ## 🏃 Usage
 
 ```bash
-python -m mistral_ocr_cli.cli \
-  --input file1.pdf file2.png \
+python mistral.py file1.pdf file2.jpg file3.png \
   --output-format md \
   --output-dir ./myresults \
   --log-path ./myresults/process.log \
@@ -74,7 +73,7 @@ python -m mistral_ocr_cli.cli \
 
 ### **CLI Options**
 
-- `--input`: One or more PDF/image files to process (**required**)
+- `FILE [FILE ...]`: One or more PDF/image files to process (**required**). List multiple files separated by spaces.
 - `--output-format`: `md` (default) or `txt`
 - `--output-dir`: Output directory (default: as set in `.env`)
 - `--log-path`: Log file path (default: as set in `.env`)

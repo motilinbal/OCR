@@ -2,7 +2,13 @@ import os
 import base64
 from pathlib import Path
 from mistralai import Mistral
-from mistralai.exceptions import MistralAPIException, MistralConnectionException
+# Exception handling: Try to import as in the official guide, fallback to Exception if not present.
+# See docs/Mistral_OCR_python_guide.md and mistralai 1.6.0 package structure.
+try:
+    from mistralai import MistralAPIException, MistralConnectionException
+except ImportError:
+    MistralAPIException = Exception
+    MistralConnectionException = Exception
 from .utils import ensure_dir_exists, get_basename_no_ext, format_exception
 
 class OCRProcessor:
