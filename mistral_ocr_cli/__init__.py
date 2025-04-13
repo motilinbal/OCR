@@ -1,0 +1,1 @@
+# Mistral OCR CLI package initializer
