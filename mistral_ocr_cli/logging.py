@@ -1,6 +1,14 @@
 import logging
 import os
 
+class SanitizationWarningFilter(logging.Filter):
+    def filter(self, record):
+        msg = record.getMessage()
+        return not (
+            'Extraneous leading bytes detected for image' in msg or
+            'No known image signature found for image' in msg
+        )
+
 def setup_logger(log_path):
     os.makedirs(os.path.dirname(log_path), exist_ok=True)
     logger = logging.getLogger("mistral_ocr_cli")
@@ -17,6 +25,7 @@ def setup_logger(log_path):
     ch = logging.StreamHandler()
     ch.setLevel(logging.INFO)
     ch.setFormatter(formatter)
+    ch.addFilter(SanitizationWarningFilter())
     logger.addHandler(ch)
 
     logger.propagate = False
